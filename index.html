@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="trancy-zh-CN">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>优雅婚礼主持 - 让您的婚礼更加难忘</title>
+    <style>
+      @font-face {
+        font-family: "MiSans";
+        src: url("https://assets-persist.lovart.ai/agent-static-assets/MiSans-Regular.ttf")
+          format("truetype");
+        font-weight: normal;
+      }
+      @font-face {
+        font-family: "MiSans";
+        src: url("https://assets-persist.lovart.ai/agent-static-assets/MiSans-Medium.ttf")
+          format("truetype");
+        font-weight: 500;
+      }
+      @font-face {
+        font-family: "MiSans";
+        src: url("https://assets-persist.lovart.ai/agent-static-assets/MiSans-Bold.ttf")
+          format("truetype");
+        font-weight: bold;
+      }
+      @font-face {
+        font-family: "NotoSerifCJK";
+        src: url("https://assets-persist.lovart.ai/agent-static-assets/NotoSerifCJKsc-Regular.otf")
+          format("opentype");
+        font-weight: normal;
+      }
+      @font-face {
+        font-family: "NotoSerifCJK";
+        src: url("https://assets-persist.lovart.ai/agent-static-assets/NotoSerifCJKsc-SemiBold.otf")
+          format("opentype");
+        font-weight: 600;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "MiSans", sans-serif;
+        color: #333;
+        line-height: 1.6;
+        overflow-x: hidden;
+        width: 1440px;
+        margin: 0 auto;
+      }
+
+      /* 颜色变量 */
+      :root {
+        --primary-pink: #ffd1dc;
+        --light-pink: #fff0f5;
+        --gold: #d4af37;
+        --light-gold: #f5ebd0;
+        --dark-text: #333333;
+        --light-text: #777777;
+      }
+
+      /* 导航栏 */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 50px;
+        background-color: rgba(255, 255, 255, 0.95);
+        position: fixed;
+        width: 1440px;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      }
+
+      .navbar a {
+        text-decoration: none;
+      }
+
+      .logo {
+        font-family: "NotoSerifCJK", serif;
+        font-size: 28px;
+        font-weight: 600;
+        color: var(--dark-text);
+      }
+
+      .logo span {
+        color: var(--gold);
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+      }
+
+      .nav-links li {
+        margin-left: 40px;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: var(--dark-text);
+        font-weight: 500;
+        font-size: 16px;
+        transition: all 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        color: var(--gold);
+      }
+
+      /* 首屏区域 */
+      .hero {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        background-color: var(--light-pink);
+        position: relative;
+        overflow: hidden;
+        margin-top: 85px;
+      }
+
+      .hero-image {
+        position: absolute;
+        left: 0;
+        height: 100%;
+        width: 60%;
+        overflow: hidden;
+      }
+
+      .hero-image img {
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      .hero-content {
+        position: absolute;
+        right: 0;
+        width: 50%;
+        padding: 0 80px;
+        z-index: 2;
+      }
+
+      .hero-content h1 {
+        font-family: "NotoSerifCJK", serif;
+        font-size: 48px;
+        font-weight: 600;
+        margin-bottom: 20px;
+        color: var(--dark-text);
+      }
+
+      .hero-content p {
+        font-size: 18px;
+        margin-bottom: 30px;
+        color: var(--light-text);
+        line-height: 1.8;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 12px 30px;
+        background-color: var(--gold);
+        color: white;
+        text-decoration: none;
+        border-radius: 30px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+
+      .btn:hover {
+        background-color: #c19b2e;
+        transform: translateY(-2px);
+      }
+
+      /* 关于我 */
+      .about {
+        padding: 100px 50px;
+        display: flex;
+        align-items: center;
+        background-color: white;
+      }
+
+      .about-content {
+        flex: 1;
+        padding-right: 50px;
+      }
+
+      .about-image {
+        flex: 1;
+        text-align: right;
+      }
+
+      .about-image img {
+        width: 90%;
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .section-title {
+        font-family: "NotoSerifCJK", serif;
+        font-size: 36px;
+        margin-bottom: 20px;
+        color: var(--dark-text);
+        position: relative;
+        padding-bottom: 15px;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 60px;
+        height: 3px;
+        background-color: var(--gold);
+      }
+
+      .about-content p {
+        margin-bottom: 20px;
+        font-size: 16px;
+        color: var(--light-text);
+        line-height: 1.8;
+      }
+
+      /* 服务介绍 */
+      .services {
+        padding: 100px 50px;
+        background-color: var(--light-pink);
+        text-align: center;
+      }
+
+      .services .section-title {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      .services .section-title::after {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .services-container {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 50px;
+      }
+
+      .service-card {
+        flex: 1;
+        background-color: white;
+        padding: 40px 30px;
+        margin: 0 15px;
+        border-radius: 10px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+      }
+
+      .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .service-icon {
+        font-size: 50px;
+        color: var(--gold);
+        margin-bottom: 20px;
+      }
+
+      .service-card h3 {
+        font-size: 22px;
+        margin-bottom: 15px;
+        color: var(--dark-text);
+      }
+
+      .service-card p {
+        font-size: 15px;
+        color: var(--light-text);
+      }
+
+      /* 作品展示 */
+      .portfolio {
+        padding: 100px 50px;
+        background-color: white;
+        text-align: center;
+      }
+
+      .portfolio .section-title {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      .portfolio .section-title::after {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .portfolio-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        margin-top: 50px;
+      }
+
+      .portfolio-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+        height: 300px;
+      }
+
+      .portfolio-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: all 0.5s ease;
+      }
+
+      .portfolio-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(212, 175, 55, 0.7);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: all 0.3s ease;
+      }
+
+      .portfolio-item:hover .portfolio-overlay {
+        opacity: 1;
+      }
+
+      .portfolio-item:hover img {
+        transform: scale(1.1);
+      }
+
+      .portfolio-overlay h4 {
+        color: white;
+        font-size: 22px;
+        margin-bottom: 10px;
+      }
+
+      .portfolio-overlay p {
+        color: white;
+        font-size: 14px;
+      }
+
+      /* 客户评价 */
+      .testimonials {
+        padding: 100px 50px;
+        background-color: var(--light-pink);
+        text-align: center;
+      }
+
+      .testimonials .section-title {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      .testimonials .section-title::after {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .testimonial-container {
+        max-width: 800px;
+        margin: 0 auto;
+        position: relative;
+      }
+
+      .testimonial-card {
+        background-color: white;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        margin: 20px 0;
+      }
+
+      .testimonial-text {
+        font-style: italic;
+        font-size: 16px;
+        color: var(--light-text);
+        margin-bottom: 20px;
+        line-height: 1.8;
+      }
+
+      .testimonial-author {
+        font-weight: 500;
+        color: var(--dark-text);
+      }
+
+      .testimonial-role {
+        font-size: 14px;
+        color: var(--light-text);
+      }
+
+      /* 联系方式 */
+      .contact {
+        padding: 100px 50px;
+        background-color: white;
+        display: flex;
+      }
+
+      .contact-form {
+        flex: 1;
+        padding-right: 50px;
+      }
+
+      .contact-info {
+        flex: 1;
+        padding-left: 50px;
+      }
+
+      .contact .section-title {
+        margin-bottom: 30px;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-control {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-family: "MiSans", sans-serif;
+        font-size: 15px;
+      }
+
+      textarea.form-control {
+        height: 150px;
+        resize: none;
+      }
+
+      .contact-info-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 25px;
+      }
+
+      .contact-icon {
+        width: 50px;
+        height: 50px;
+        background-color: var(--light-pink);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 20px;
+      }
+
+      .contact-icon i {
+        font-size: 20px;
+        color: var(--gold);
+      }
+
+      .contact-text h4 {
+        font-size: 18px;
+        margin-bottom: 5px;
+        color: var(--dark-text);
+      }
+
+      .contact-text p {
+        font-size: 15px;
+        color: var(--light-text);
+      }
+
+      /* 页脚 */
+      .footer {
+        background-color: #333;
+        color: white;
+        padding: 50px;
+        text-align: center;
+      }
+
+      .footer-content {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .social-links {
+        margin-bottom: 20px;
+      }
+
+      .social-links a {
+        display: inline-block;
+        width: 44px;
+        height: 44px;
+        background-color: rgba(255, 255, 255);
+        border-radius: 50%;
+        margin: 0 10px;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        transition: all 0.3s ease;
+      }
+
+      .social-links a:hover {
+        background-color: var(--gold);
+        transform: translateY(-3px);
+      }
+
+      .copyright {
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.7);
+      }
+    </style>
+  </head>
+  <body
+    mpa-version="11.5.5"
+    mpa-extension-id="ibefaeehajgcpooopoegkifhgecigeeg"
+    cz-shortcut-listen="true"
+  >
+    <!-- 导航栏 -->
+    <nav class="navbar">
+      <a href="./index.html">
+        <div class="logo">优雅<span>婚礼</span>主持</div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="./index.html" class="active">首页</a></li>
+        <li><a href="./about.html">关于我</a></li>
+        <li><a href="./services.html">服务介绍</a></li>
+        <li><a href="./portfolio.html">作品展示</a></li>
+        <li><a href="./index.html#contact">联系方式</a></li>
+      </ul>
+    </nav>
+
+    <!-- 首屏区域 -->
+    <section class="hero" id="home">
+      <div class="hero-image">
+        <img
+          src="./aiphoto.png"
+          alt="婚礼主持人形象"
+        />
+      </div>
+      <div class="hero-content">
+        <h1>让每一场婚礼都成为难忘的回忆</h1>
+        <p>
+          我是一名专业婚礼主持人，致力于为每对新人打造独一无二的婚礼体验。用温暖的声音、专业的技巧和真挚的情感，让您的婚礼充满欢笑与感动。
+        </p>
+        <a
+          href="./index.html#contact"
+          class="btn"
+          >预约咨询</a
+        >
+      </div>
+    </section>
+
+    <!-- 关于我 -->
+    <section class="about" id="about">
+      <div class="about-content">
+        <h2 class="section-title">关于我</h2>
+        <p>
+          您好，我是一名拥有8年婚礼主持经验的专业主持人。我热爱婚礼行业，深知每对新人对婚礼的期待与重视。
+        </p>
+        <p>
+          我擅长根据新人的性格和喜好，量身定制婚礼流程，创造轻松愉快的氛围，同时保持婚礼的庄重与感动。我的声音温暖动听，语言幽默风趣，能够自如地掌控现场节奏，让每一位宾客都能融入其中。
+        </p>
+        <p>
+          我相信，一场完美的婚礼不仅需要精美的布置，更需要一位能够传递爱与祝福的主持人。我期待能够成为您婚礼中的重要一员，共同创造属于您的完美回忆。
+        </p>
+        <a
+          href="./about.html"
+          class="btn"
+          >了解更多</a
+        >
+      </div>
+      <div class="about-image">
+        <img
+          src="./aiphoto.png"
+          alt="主持人形象"
+        />
+      </div>
+    </section>
+
+    <!-- 服务介绍 -->
+    <section class="services" id="services">
+      <h2 class="section-title">我的服务</h2>
+      <p>为您提供专业、贴心、全方位的婚礼主持服务</p>
+      <div class="services-container">
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="ri-mic-line"></i>
+          </div>
+          <h3>婚礼主持</h3>
+          <p>
+            根据您的需求和婚礼风格，量身定制主持方案，掌控婚礼全程节奏，创造温馨感人的氛围。
+          </p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="ri-file-list-3-line"></i>
+          </div>
+          <h3>流程策划</h3>
+          <p>
+            提供专业的婚礼流程策划建议，从入场到退场，每个环节都精心安排，确保婚礼顺利进行。
+          </p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="ri-heart-line"></i>
+          </div>
+          <h3>个性定制</h3>
+          <p>
+            根据新人的故事和喜好，设计独特的互动环节和感人桥段，让您的婚礼与众不同。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 作品展示 -->
+    <section class="portfolio" id="portfolio">
+      <h2 class="section-title">作品展示</h2>
+      <p>每一场婚礼都是独特的艺术作品</p>
+      <div class="portfolio-grid">
+        <div class="portfolio-item">
+          <img
+            src="./优雅婚礼主持 - 让您的婚礼更加难忘_files/eebc2112-76d7-49cc-973d-436a27d74cf2.png"
+            alt="婚礼现场"
+          />
+          <div class="portfolio-overlay">
+            <h4>海边草坪婚礼</h4>
+            <p>浪漫海景，见证永恒</p>
+          </div>
+        </div>
+        <div class="portfolio-item">
+          <img
+            src="./flower.png"
+            alt="婚礼布置"
+          />
+          <div class="portfolio-overlay">
+            <h4>奢华宴会厅婚礼</h4>
+            <p>精致布置，尽显高雅</p>
+          </div>
+        </div>
+        <div class="portfolio-item">
+          <img
+            src="./优雅婚礼主持 - 让您的婚礼更加难忘_files/eebc2112-76d7-49cc-973d-436a27d74cf2.png"
+            alt="婚礼现场"
+          />
+          <div class="portfolio-overlay">
+            <h4>户外森系婚礼</h4>
+            <p>自然清新，浪漫温馨</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 客户评价 -->
+    <section class="testimonials" id="testimonials">
+      <h2 class="section-title">客户评价</h2>
+      <p>听听新人们怎么说</p>
+      <div class="testimonial-container">
+        <div class="testimonial-card">
+          <p class="testimonial-text">
+            "非常感谢您为我们的婚礼带来如此美好的体验！您的主持既专业又温暖，让我们的婚礼充满了欢笑和感动。很多宾客都对您的主持赞不绝口，说这是他们参加过的最有趣、最感人的婚礼之一。"
+          </p>
+          <h4 class="testimonial-author">李先生 &amp; 王女士</h4>
+          <p class="testimonial-role">2023年5月婚礼</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 联系方式 -->
+    <section class="contact" id="contact">
+      <div class="contact-form">
+        <h2 class="section-title">联系我</h2>
+        <p>填写以下表单，我将尽快与您联系</p>
+        <form>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="您的姓名" />
+          </div>
+          <div class="form-group">
+            <input type="email" class="form-control" placeholder="您的邮箱" />
+          </div>
+          <div class="form-group">
+            <input type="tel" class="form-control" placeholder="您的电话" />
+          </div>
+          <div class="form-group">
+            <textarea
+              class="form-control"
+              placeholder="请简要描述您的需求"
+            ></textarea>
+          </div>
+          <button type="submit" class="btn">发送信息</button>
+        </form>
+      </div>
+      <div class="contact-info">
+        <h2 class="section-title">联系信息</h2>
+        <p>您也可以通过以下方式直接联系我</p>
+        <div class="contact-info-item">
+          <div class="contact-icon">
+            <i class="ri-phone-line"></i>
+          </div>
+          <div class="contact-text">
+            <h4>电话</h4>
+            <p>+86 138 8888 8888</p>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-icon">
+            <i class="ri-mail-line"></i>
+          </div>
+          <div class="contact-text">
+            <h4>邮箱</h4>
+            <p>contact@eleganthost.com</p>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-icon">
+            <i class="ri-map-pin-line"></i>
+          </div>
+          <div class="contact-text">
+            <h4>工作室地址</h4>
+            <p>上海市静安区南京西路1788号</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="social-links">
+          <a href=""><svg t="1754302376147" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7310" width="40" height="40"><path d="M512 2.27555555a509.72444445 509.72444445 0 1 0 0 1019.4488889A509.72444445 509.72444445 0 0 0 512 2.27555555z" fill="#FF0035" p-id="7311"></path><path d="M651.37322667 388.93795555c3.64088889 0 5.53415111 0 5.53415111 5.6069689v46.38492444c0 3.64088889-1.82044445 5.53415111-5.53415111 5.53415111h-25.99594667c-5.53415111 0-7.42741333 1.82044445-7.42741333 7.42741333v161.29137778c0 3.71370667 1.89326222 5.60696889 5.60696888 5.60696889h46.38492445c5.53415111 0 7.35459555 1.82044445 7.35459555 7.42741333v44.41884445c0 5.60696889-1.82044445 7.50023111-7.35459555 7.50023111-29.70965333-1.89326222-61.16693333-1.89326222-92.76984889-1.89326222H482.58161778c-5.53415111 0-7.35459555 0-3.64088889-5.53415112 7.35459555-14.85482667 14.78200889-31.53009778 24.02986666-46.38492444 1.89326222-3.64088889 3.71370667-5.53415111 9.32067556-5.53415111h46.38492444c4.36906667 0 5.31569778-1.16508445 5.46133334-4.51470222V451.99815111c0-5.53415111-1.82044445-7.35459555-7.28177778-5.53415111h-25.99594666c-5.60696889 0-7.42741333-1.82044445-7.42741334-5.53415111v-44.56448c0-5.53415111 1.82044445-7.35459555 7.42741334-7.35459556h120.51342222zM391.77784889 617.14887111c12.96156445 5.53415111 27.81639111 3.64088889 42.5984 3.64088889h37.13706666c3.64088889 0 5.53415111 1.89326222 3.6408889 5.60696889-9.24785778 16.74808889-16.67527111 33.42336-25.9231289 50.09863111-1.82044445 3.64088889-3.64088889 3.64088889-7.42741333 3.64088889-9.24785778-1.82044445-20.38897778-1.82044445-35.24380444-1.82044444-11.06830222 0-27.81639111 1.89326222-40.77795556-1.82044445-5.53415111-1.89326222-7.42741333-3.71370667-3.64088889-7.42741333 9.17504-16.74808889 16.60245333-31.53009778 24.02986667-48.20536889 1.89326222-1.89326222 1.89326222-5.60696889 5.60696889-3.71370667z m393.07036444-244.81336889c3.71370667 0 5.60696889 1.89326222 5.60696889 5.60696889 0 12.96156445 0 12.96156445 12.96156445 12.96156444 16.74808889 0 31.53009778 3.71370667 44.49166222 11.14112 18.56853333 11.14112 25.99594667 29.63683555 25.99594666 50.02581334v37.13706666c0 5.53415111 1.82044445 7.42741333 7.42741334 7.42741334 20.38897778 0 37.06424889 5.53415111 50.02581333 22.20942222a55.55996445 55.55996445 0 0 1 11.14112 33.42336V626.32391111c0 27.81639111-16.74808889 48.20536889-44.49166222 51.91907556a75.73048889 75.73048889 0 0 1-35.24380445-1.82044445 48.05973333 48.05973333 0 0 1-33.35054222-42.67121777c0-5.53415111 1.82044445-3.64088889 5.53415112-3.6408889h46.38492444c5.53415111 0 7.42741333-1.89326222 7.42741333-7.5002311v-48.2053689c0-12.96156445-7.42741333-20.38897778-20.38897777-20.38897777h-70.4876089c-3.71370667 0-5.60696889 1.89326222-5.60696888 5.53415111 1.89326222 18.56853333 1.89326222 37.13706667 1.89326222 57.52604444v55.63278222c0 5.53415111-1.89326222 7.42741333-7.42741334 7.42741334h-44.49166222c-5.60696889 0-7.42741333-1.89326222-7.42741333-7.42741334V561.44327111c0-5.53415111-1.89326222-7.42741333-7.42741333-7.42741333h-42.67121778c-5.53415111 0-7.42741333 0-7.42741334-5.53415111v-46.38492445c0-5.53415111 1.89326222-5.53415111 7.42741334-5.53415111h44.49166222c5.60696889 0 7.42741333-1.89326222 5.60696889-7.42741333v-35.24380445c0-5.60696889-1.89326222-5.60696889-7.42741333-5.60696888h-25.99594667c-3.64088889 0-5.53415111 0-5.53415111-5.53415112v-46.38492444c0-3.64088889 1.89326222-5.53415111 5.53415111-5.53415111h25.99594667c3.64088889 0 5.53415111-1.82044445 5.53415111-5.53415111 0-11.35957333 0-12.81592889 9.97603555-12.96156445h41.94304z m-543.29344-5.53415111c5.53415111 0 7.42741333 1.82044445 7.42741334 7.42741334-1.45635555 34.73408-1.74762667 67.42926222-1.82044445 98.81372444V626.32391111a52.35598222 52.35598222 0 0 1-7.50023111 27.81639111c-9.24785778 18.56853333-25.92312889 24.10268445-46.31210666 22.28224a41.72458667 41.72458667 0 0 1-38.95751112-31.53009777c-5.60696889-18.56853333-5.60696889-16.74808889 12.96156445-18.56853334 7.42741333 0 16.74808889 3.71370667 22.28224-1.82044444 3.64088889-3.71370667 1.82044445-12.96156445 1.82044444-20.38897778V374.15594667c0-5.60696889 1.89326222-7.42741333 7.42741333-7.42741334h42.67121778zM148.78492445 451.99815111c-3.64088889 40.77795555-5.53415111 81.55591111-11.06830223 122.40668444a160.92728889 160.92728889 0 0 1-29.70965333 74.20131556c1.89326222 0 0 1.82044445 0 3.64088889-11.14112-20.38897778-20.38897778-40.77795555-31.53009778-61.16693333-1.82044445-1.82044445-1.82044445-3.64088889 0-5.53415112 7.42741333-16.74808889 7.42741333-33.35054222 7.42741334-51.91907555l5.60696888-81.55591111c0-3.78652445 1.82044445-5.60696889 5.53415112-5.60696889h48.20536888c3.71370667 0 5.53415111 0 5.53415112 5.53415111zM337.96551111 446.464c5.53415111 0 5.53415111 1.82044445 7.42741334 7.42741333 1.82044445 37.13706667 5.53415111 74.20131555 9.24785777 111.26556445 0 3.64088889 0 9.24785778 1.89326223 12.96156444 3.64088889 7.42741333 1.82044445 14.85482667-1.89326223 22.28224-7.42741333 14.78200889-14.78200889 31.53009778-22.20942222 46.31210667-1.89326222 5.60696889-3.71370667 5.60696889-7.42741333 0-12.96156445-20.38897778-20.38897778-40.77795555-25.99594667-64.80782222C293.54666667 559.47719111 293.54666667 535.37450667 291.58058667 513.16508445c-1.82044445-20.38897778-3.64088889-38.95751111-5.53415112-59.3464889 0-5.60696889 0-7.42741333 7.42741334-7.42741333 7.42741333 1.82044445 14.85482667 0 22.20942222 0h22.28224z m144.61610667-74.20131555c5.60696889 0 5.60696889 1.89326222 3.71370667 5.60696888l-33.35054223 66.77390222c-1.82044445 1.82044445-1.82044445 3.64088889-3.71370667 7.35459556-1.82044445 3.71370667 0 5.60696889 3.71370667 7.42741334 3.64088889 1.89326222 3.64088889-1.82044445 5.53415111-3.6408889 1.89326222-3.78652445 3.71370667-5.60696889 9.32067556-5.60696888h44.41884444c5.60696889 0 5.60696889 1.82044445 3.78652445 5.53415111-14.85482667 27.81639111-27.81639111 57.52604445-42.67121778 85.34243555-5.53415111 11.14112-3.64088889 14.85482667 9.24785778 14.85482667 3.71370667-1.89326222 11.14112-1.89326222 18.56853333-1.89326222-7.42741333 12.96156445-12.96156445 25.99594667-18.56853333 38.95751111-3.64088889 9.24785778-9.24785778 11.14112-16.67527111 11.14112h-42.5984c-3.71370667 0-7.42741333 0-11.14112-1.89326222-13.03438222-3.64088889-16.74808889-12.96156445-13.03438222-25.92312889 7.42741333-20.38897778 18.56853333-38.95751111 27.8163911-59.34648889 1.89326222-3.71370667 3.71370667-5.60696889 5.6069689-11.14112h-37.13706667c-14.78200889-3.71370667-20.38897778-12.96156445-14.78200889-27.81639111 5.53415111-16.74808889 14.85482667-33.35054222 22.20942222-48.20536889 9.32067555-16.74808889 16.74808889-35.24380445 25.99594667-51.91907556 1.82044445-3.71370667 3.64088889-5.60696889 9.24785777-5.60696888h44.49166223z m315.30097777 74.20131555c-3.71370667 0-5.60696889 1.82044445-5.60696888 5.53415111v38.95751111c0 3.71370667 1.89326222 5.60696889 5.60696888 5.60696889h20.38897778c3.64088889 0 5.53415111-1.89326222 5.53415112-5.60696889v-30.58346667c-0.21845333-13.90819555-2.76707555-13.90819555-25.9231289-13.90819555z m126.04757334-57.52604445c13.03438222 1.89326222 24.10268445 14.85482667 24.10268444 29.70965334s-11.06830222 25.99594667-25.92312888 27.81639111h-14.85482667c-18.49571555 0-18.49571555 0-18.49571556-18.56853333 0-5.53415111 0-12.96156445 1.82044445-18.49571556 3.71370667-14.85482667 16.74808889-22.28224 33.35054222-20.38897778z" fill="#FFFFFF" p-id="7312"></path></svg></a>
+          <a href=""><svg t="1754302242511" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6281" width="40" height="40"><path d="M512 512m-512 0a512 512 0 1 0 1024 0 512 512 0 1 0-1024 0Z" fill="#333333" p-id="6282"></path><path d="M759.296 448.512c-48.896 0-96.256-15.872-135.424-45.056v204.8c0 104.448-80.64 189.184-179.968 189.184s-179.968-84.736-179.968-189.184 80.64-189.184 179.968-189.184c9.984 0 19.712 0.768 28.928 2.56V529.92c-8.96-3.584-18.688-5.376-28.16-5.376-44.288 0-80.384 37.632-80.384 84.48s36.096 84.48 80.384 84.48 80.128-37.632 80.128-84.48V202.24h100.352c0 78.336 60.416 141.568 134.656 141.568v104.704h-0.512" fill="#FFFFFF" p-id="6283"></path></svg></a>
+          <a href=""><svg t="1754302213857" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5273" width="40" height="40"><path d="M337.387283 341.82659c-17.757225 0-35.514451 11.83815-35.514451 29.595375s17.757225 29.595376 35.514451 29.595376 29.595376-11.83815 29.595376-29.595376c0-18.49711-11.83815-29.595376-29.595376-29.595375zM577.849711 513.479769c-11.83815 0-22.936416 12.578035-22.936416 23.6763 0 12.578035 11.83815 23.676301 22.936416 23.676301 17.757225 0 29.595376-11.83815 29.595376-23.676301s-11.83815-23.676301-29.595376-23.6763zM501.641618 401.017341c17.757225 0 29.595376-12.578035 29.595376-29.595376 0-17.757225-11.83815-29.595376-29.595376-29.595375s-35.514451 11.83815-35.51445 29.595375 17.757225 29.595376 35.51445 29.595376zM706.589595 513.479769c-11.83815 0-22.936416 12.578035-22.936416 23.6763 0 12.578035 11.83815 23.676301 22.936416 23.676301 17.757225 0 29.595376-11.83815 29.595376-23.676301s-11.83815-23.676301-29.595376-23.6763z" fill="#28C445" p-id="5274"></path><path d="M510.520231 2.959538C228.624277 2.959538 0 231.583815 0 513.479769s228.624277 510.520231 510.520231 510.520231 510.520231-228.624277 510.520231-510.520231-228.624277-510.520231-510.520231-510.520231zM413.595376 644.439306c-29.595376 0-53.271676-5.919075-81.387284-12.578034l-81.387283 41.433526 22.936416-71.768786c-58.450867-41.433526-93.965318-95.445087-93.965317-159.815029 0-113.202312 105.803468-201.988439 233.803468-201.98844 114.682081 0 216.046243 71.028902 236.023121 166.473989-7.398844-0.739884-14.797688-1.479769-22.196532-1.479769-110.982659 1.479769-198.289017 85.086705-198.289017 188.67052 0 17.017341 2.959538 33.294798 7.398844 49.572255-7.398844 0.739884-15.537572 1.479769-22.936416 1.479768z m346.265896 82.867052l17.757225 59.190752-63.630058-35.514451c-22.936416 5.919075-46.612717 11.83815-70.289017 11.83815-111.722543 0-199.768786-76.947977-199.768786-172.393063-0.739884-94.705202 87.306358-171.653179 198.289017-171.65318 105.803468 0 199.028902 77.687861 199.028902 172.393064 0 53.271676-34.774566 100.624277-81.387283 136.138728z" fill="#28C445" p-id="5275"></path></svg></a>
+        </div>
+        <p class="copyright">© 2025 优雅婚礼主持 版权所有</p>
+      </div>
+    </footer>
+  </body>
+</html>

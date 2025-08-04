@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<!-- saved from url=(0087)https://assets-persist.lovart.ai/agent_images/2a3e15da-7f8f-48e5-ae50-52989a829482.html -->
+<html lang="zh-CN" class="trancy-zh-CN">
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="chrome-extension://ponokiofkijoolhebggofhhibnafebna/common/default.inline.css"
+  />
+  <script
+    type="text/javascript"
+    src="chrome-extension://ponokiofkijoolhebggofhhibnafebna/common/default.inline.js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="chrome-extension://cphlcmmpbdkadofgcedjgfblmiklbokm/js/tweet_interceptor.js"
+  ></script>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>服务介绍 - 专业婚礼主持人</title>
+    <style>
+      @font-face {
+        font-family: "MiSans";
+        src: url("https://assets-persist.lovart.ai/agent-static-assets/MiSans-Regular.ttf")
+          format("truetype");
+        font-weight: normal;
+        font-style: normal;
+      }
+      @font-face {
+        font-family: "MiSans";
+        src: url("https://assets-persist.lovart.ai/agent-static-assets/MiSans-Medium.ttf")
+          format("truetype");
+        font-weight: 500;
+        font-style: normal;
+      }
+      @font-face {
+        font-family: "MiSans";
+        src: url("https://assets-persist.lovart.ai/agent-static-assets/MiSans-Bold.ttf")
+          format("truetype");
+        font-weight: bold;
+        font-style: normal;
+      }
+      @font-face {
+        font-family: "NotoSerifCJKsc";
+        src: url("https://assets-persist.lovart.ai/agent-static-assets/NotoSerifCJKsc-Regular.otf")
+          format("opentype");
+        font-weight: normal;
+        font-style: normal;
+      }
+      @font-face {
+        font-family: "NotoSerifCJKsc";
+        src: url("https://assets-persist.lovart.ai/agent-static-assets/NotoSerifCJKsc-Bold.otf")
+          format("opentype");
+        font-weight: bold;
+        font-style: normal;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* 颜色变量 */
+      :root {
+        --primary-pink: #ffd1dc;
+        --light-pink: #fff0f5;
+        --gold: #d4af37;
+        --light-gold: #f5ebd0;
+        --dark-text: #333333;
+        --light-text: #777777;
+      }
+
+      body {
+        font-family: "MiSans", sans-serif;
+        color: #333;
+        background-color: #fff;
+        line-height: 1.6;
+        width: 1440px;
+        margin: 0 auto;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 1440px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* 导航栏样式 */
+      .navbar {
+        background-color: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        position: fixed;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 1440px;
+        z-index: 1000;
+        padding: 15px 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-family: "NotoSerifCJK", serif;
+        font-size: 28px;
+        font-weight: 600;
+        color: var(--dark-text);
+      }
+
+      .logo span {
+        color: var(--gold);
+      }
+
+      .navbar a {
+        text-decoration: none;
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+      }
+
+      .nav-links li {
+        margin-left: 30px;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: #333;
+        font-weight: 500;
+        font-size: 16px;
+        transition: color 0.3s;
+        position: relative;
+      }
+
+      .nav-links a:hover {
+        color: #d4a762;
+      }
+
+      .nav-links a.active {
+        color: #d4a762;
+      }
+
+      .nav-links a.active::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #d4a762;
+      }
+
+      /* 页面标题样式 */
+      .page-header {
+        text-align: center;
+        padding: 150px 0 60px;
+        background: linear-gradient(to bottom, #fff9fb, #fff);
+      }
+
+      .page-title {
+        font-family: "NotoSerifCJKsc", serif;
+        font-size: 42px;
+        color: #333;
+        margin-bottom: 15px;
+      }
+
+      .title-decoration {
+        display: inline-block;
+        width: 100px;
+        height: 2px;
+        background-color: #d4a762;
+        position: relative;
+      }
+
+      .title-decoration::before,
+      .title-decoration::after {
+        content: "";
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: #d4a762;
+        top: -3px;
+      }
+
+      .title-decoration::before {
+        left: -4px;
+      }
+
+      .title-decoration::after {
+        right: -4px;
+      }
+
+      /* 服务概览样式 */
+      .service-overview {
+        text-align: center;
+        padding: 40px 0;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .service-overview p {
+        font-size: 18px;
+        color: #666;
+        line-height: 1.8;
+      }
+
+      /* 服务详情样式 */
+      .services-section {
+        padding: 60px 0;
+        background-color: #fff;
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        margin-top: 40px;
+      }
+
+      .service-card {
+        background-color: #fff;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s, box-shadow 0.3s;
+        position: relative;
+      }
+
+      .service-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      .service-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 5px;
+        height: 100%;
+        background: linear-gradient(to bottom, #f8c9d6, #d4a762);
+      }
+
+      .service-content {
+        padding: 30px;
+      }
+
+      .service-title {
+        font-family: "NotoSerifCJKsc", serif;
+        font-size: 24px;
+        color: #333;
+        margin-bottom: 15px;
+        position: relative;
+        padding-bottom: 10px;
+      }
+
+      .service-title::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 50px;
+        height: 2px;
+        background-color: #f8c9d6;
+      }
+
+      .service-description {
+        font-size: 16px;
+        color: #666;
+        margin-bottom: 20px;
+      }
+
+      .service-price {
+        font-size: 22px;
+        font-weight: bold;
+        color: #d4a762;
+        margin-bottom: 15px;
+      }
+
+      .service-includes {
+        margin-top: 20px;
+      }
+
+      .service-includes h4 {
+        font-size: 18px;
+        color: #333;
+        margin-bottom: 10px;
+      }
+
+      .includes-list {
+        list-style: none;
+      }
+
+      .includes-list li {
+        font-size: 15px;
+        color: #666;
+        margin-bottom: 8px;
+        display: flex;
+        align-items: flex-start;
+      }
+
+      .includes-list li i {
+        color: #f8c9d6;
+        margin-right: 10px;
+        font-size: 18px;
+      }
+
+      /* 服务比较表格样式 */
+      .service-comparison {
+        padding: 60px 0;
+        background-color: #fff9fb;
+      }
+
+      .section-title {
+        font-family: "NotoSerifCJKsc", serif;
+        font-size: 32px;
+        color: #333;
+        text-align: center;
+        margin-bottom: 40px;
+        position: relative;
+        padding-bottom: 15px;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 2px;
+        background-color: #d4a762;
+      }
+
+      .comparison-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 30px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        border-radius: 10px;
+        overflow: hidden;
+      }
+
+      .comparison-table th {
+        background-color: #f8c9d6;
+        color: #333;
+        padding: 20px;
+        text-align: left;
+        font-size: 18px;
+        font-weight: 500;
+      }
+
+      .comparison-table th:first-child {
+        background-color: #d4a762;
+        color: #fff;
+      }
+
+      .comparison-table td {
+        padding: 15px 20px;
+        border-bottom: 1px solid #eee;
+        font-size: 16px;
+        color: #666;
+      }
+
+      .comparison-table tr:last-child td {
+        border-bottom: none;
+      }
+
+      .comparison-table tr:nth-child(even) {
+        background-color: #fff;
+      }
+
+      .comparison-table tr:nth-child(odd) {
+        background-color: #fafafa;
+      }
+
+      /* 预约流程样式 */
+      .booking-process {
+        padding: 60px 0;
+        background-color: #fff;
+      }
+
+      .process-steps {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 50px;
+        position: relative;
+      }
+
+      .process-steps::before {
+        content: "";
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #f8c9d6;
+        z-index: 1;
+      }
+
+      .step {
+        text-align: center;
+        position: relative;
+        z-index: 2;
+        width: 20%;
+      }
+
+      .step-icon {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background-color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto 20px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        border: 2px solid #f8c9d6;
+        transition: all 0.3s;
+      }
+
+      .step:hover .step-icon {
+        background-color: #f8c9d6;
+        transform: scale(1.05);
+      }
+
+      .step-icon i {
+        font-size: 36px;
+        color: #d4a762;
+      }
+
+      .step:hover .step-icon i {
+        color: #fff;
+      }
+
+      .step-number {
+        font-size: 18px;
+        font-weight: bold;
+        color: #d4a762;
+        margin-bottom: 10px;
+      }
+
+      .step-title {
+        font-size: 18px;
+        font-weight: 500;
+        color: #333;
+        margin-bottom: 10px;
+      }
+
+      .step-description {
+        font-size: 14px;
+        color: #666;
+      }
+
+      /* 常见问题样式 */
+      .faq-section {
+        padding: 60px 0;
+        background-color: #fff9fb;
+      }
+
+      .faq-container {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .faq-item {
+        margin-bottom: 20px;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        background-color: #fff;
+      }
+
+      .faq-question {
+        padding: 20px;
+        background-color: #fff;
+        font-size: 18px;
+        font-weight: 500;
+        color: #333;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: background-color 0.3s;
+      }
+
+      .faq-question:hover {
+        background-color: #fef4f7;
+      }
+
+      .faq-question i {
+        font-size: 20px;
+        color: #d4a762;
+        transition: transform 0.3s;
+      }
+
+      .faq-answer {
+        padding: 0 20px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out, padding 0.3s;
+        background-color: #fff;
+      }
+
+      .faq-item.active .faq-question {
+        background-color: #fef4f7;
+      }
+
+      .faq-item.active .faq-question i {
+        transform: rotate(180deg);
+      }
+
+      .faq-item.active .faq-answer {
+        padding: 0 20px 20px;
+        max-height: 500px;
+      }
+
+      .faq-answer p {
+        font-size: 16px;
+        color: #666;
+        line-height: 1.6;
+      }
+
+      /* 页脚 */
+      .footer {
+        background-color: #333;
+        color: white;
+        padding: 50px;
+        text-align: center;
+      }
+
+      .footer-content {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .social-links {
+        margin-bottom: 20px;
+      }
+
+      .social-links a {
+        display: inline-block;
+        width: 44px;
+        height: 44px;
+        background-color: rgba(255, 255, 255);
+        border-radius: 50%;
+        margin: 0 10px;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        transition: all 0.3s ease;
+      }
+
+      .social-links a:hover {
+        background-color: var(--gold);
+        transform: translateY(-3px);
+      }
+
+      .copyright {
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      /* 主图样式 */
+      .hero-image {
+        width: 100%;
+        height: 500px;
+        background-image: url("./zhuchi.png");
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        margin-top: 80px;
+      }
+
+      .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.2),
+          rgba(0, 0, 0, 0.5)
+        );
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 0 20px;
+      }
+
+      .hero-title {
+        font-family: "NotoSerifCJKsc", serif;
+        font-size: 48px;
+        font-weight: bold;
+        color: #fff;
+        margin-bottom: 20px;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .hero-subtitle {
+        font-size: 24px;
+        color: #fff;
+        max-width: 700px;
+        margin-bottom: 30px;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .cta-button {
+        display: inline-block;
+        padding: 15px 30px;
+        background-color: #d4a762;
+        color: #fff;
+        font-size: 18px;
+        font-weight: 500;
+        text-decoration: none;
+        border-radius: 30px;
+        transition: background-color 0.3s, transform 0.3s;
+        box-shadow: 0 4px 10px rgba(212, 167, 98, 0.3);
+      }
+
+      .cta-button:hover {
+        background-color: #c69855;
+        transform: translateY(-3px);
+        box-shadow: 0 6px 15px rgba(212, 167, 98, 0.4);
+      }
+    </style>
+  </head>
+  <body
+    mpa-version="11.5.5"
+    mpa-extension-id="ibefaeehajgcpooopoegkifhgecigeeg"
+    cz-shortcut-listen="true"
+  >
+    <!-- 导航栏 -->
+    <nav class="navbar">
+      <a href="./index.html">
+        <div class="logo">优雅<span>婚礼</span>主持</div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="./index.html">首页</a></li>
+        <li><a href="./about.html">关于我</a></li>
+        <li><a href="./services.html" class="active">服务介绍</a></li>
+        <li><a href="./portfolio.html">作品展示</a></li>
+        <li><a href="./index.html#contact">联系方式</a></li>
+      </ul>
+    </nav>
+
+    <!-- 主图 -->
+    <div class="hero-image">
+      <div class="hero-overlay">
+        <h1 class="hero-title">专业婚礼主持服务</h1>
+        <p class="hero-subtitle">
+          为您的特别时刻增添优雅与感动，让每一个瞬间都成为永恒的回忆
+        </p>
+        <a href="./index.html#contact" class="cta-button">预约咨询</a>
+      </div>
+    </div>
+
+    <!-- 页面标题 -->
+    <div class="page-header">
+      <h1 class="page-title">服务介绍</h1>
+      <span class="title-decoration"></span>
+    </div>
+
+    <!-- 服务概览 -->
+    <div class="service-overview container">
+      <p>
+        作为一名专业的婚礼主持人，我致力于为每对新人打造独特、温馨且难忘的婚礼体验。从婚礼流程设计到现场主持，从新人培训到情感故事挖掘，我提供全方位的婚礼主持服务，确保您的婚礼充满爱与感动，成为宾客们津津乐道的美好回忆。
+      </p>
+    </div>
+
+    <!-- 服务详情 -->
+    <section class="services-section container">
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-content">
+            <h3 class="service-title">婚礼主持服务</h3>
+            <p class="service-description">
+              专业、温情、幽默的婚礼现场主持，掌控全场氛围，让您的婚礼流程顺畅、气氛热烈，为您创造难忘的婚礼体验。
+            </p>
+            <div class="service-price">¥5,800 起</div>
+            <div class="service-includes">
+              <h4>服务内容包括：</h4>
+              <ul class="includes-list">
+                <li><i class="ri-check-line"></i>婚礼全程主持（8小时）</li>
+                <li><i class="ri-check-line"></i>婚礼前3次沟通会议</li>
+                <li><i class="ri-check-line"></i>个性化开场白与结束语</li>
+                <li><i class="ri-check-line"></i>紧急情况应对方案</li>
+                <li><i class="ri-check-line"></i>主持人礼服搭配</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-content">
+            <h3 class="service-title">婚礼策划咨询</h3>
+            <p class="service-description">
+              根据新人的喜好和预算，提供专业的婚礼策划建议，包括主题设计、流程安排、供应商推荐等，让您的婚礼独具特色。
+            </p>
+            <div class="service-price">¥3,200 起</div>
+            <div class="service-includes">
+              <h4>服务内容包括：</h4>
+              <ul class="includes-list">
+                <li><i class="ri-check-line"></i>3次面对面策划会议</li>
+                <li><i class="ri-check-line"></i>婚礼主题与风格定制</li>
+                <li><i class="ri-check-line"></i>婚礼流程设计</li>
+                <li><i class="ri-check-line"></i>优质供应商推荐</li>
+                <li><i class="ri-check-line"></i>预算规划与控制</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-content">
+            <h3 class="service-title">婚礼流程设计</h3>
+            <p class="service-description">
+              根据新人的爱情故事和个性特点，量身定制婚礼流程，包括创意环节设计、音乐选择、仪式安排等，让婚礼更有温度。
+            </p>
+            <div class="service-price">¥2,500 起</div>
+            <div class="service-includes">
+              <h4>服务内容包括：</h4>
+              <ul class="includes-list">
+                <li><i class="ri-check-line"></i>个性化婚礼流程设计</li>
+                <li><i class="ri-check-line"></i>创意互动环节策划</li>
+                <li><i class="ri-check-line"></i>婚礼音乐选择与编排</li>
+                <li><i class="ri-check-line"></i>仪式感设计与提升</li>
+                <li><i class="ri-check-line"></i>流程时间把控方案</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-content">
+            <h3 class="service-title">新人培训服务</h3>
+            <p class="service-description">
+              为新人提供婚礼仪式中的站姿、走姿、表情管理等培训，帮助新人在婚礼中展现最佳状态，增强自信。
+            </p>
+            <div class="service-price">¥1,800 起</div>
+            <div class="service-includes">
+              <h4>服务内容包括：</h4>
+              <ul class="includes-list">
+                <li><i class="ri-check-line"></i>2次面对面培训课程</li>
+                <li><i class="ri-check-line"></i>婚礼仪式站姿走姿指导</li>
+                <li><i class="ri-check-line"></i>致辞演讲技巧培训</li>
+                <li><i class="ri-check-line"></i>情绪与表情管理</li>
+                <li><i class="ri-check-line"></i>应对突发情况的技巧</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 服务比较 -->
+    <section class="service-comparison container">
+      <h2 class="section-title">服务套餐对比</h2>
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>服务内容</th>
+            <th>基础套餐</th>
+            <th>标准套餐</th>
+            <th>豪华套餐</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>婚礼主持</td>
+            <td><i class="ri-check-line" style="color: #d4a762"></i></td>
+            <td><i class="ri-check-line" style="color: #d4a762"></i></td>
+            <td><i class="ri-check-line" style="color: #d4a762"></i></td>
+          </tr>
+          <tr>
+            <td>婚前沟通次数</td>
+            <td>2次</td>
+            <td>3次</td>
+            <td>无限次</td>
+          </tr>
+          <tr>
+            <td>婚礼流程设计</td>
+            <td><i class="ri-close-line" style="color: #999"></i></td>
+            <td><i class="ri-check-line" style="color: #d4a762"></i></td>
+            <td><i class="ri-check-line" style="color: #d4a762"></i></td>
+          </tr>
+          <tr>
+            <td>新人培训</td>
+            <td><i class="ri-close-line" style="color: #999"></i></td>
+            <td><i class="ri-close-line" style="color: #999"></i></td>
+            <td><i class="ri-check-line" style="color: #d4a762"></i></td>
+          </tr>
+          <tr>
+            <td>创意环节设计</td>
+            <td>基础版</td>
+            <td>进阶版</td>
+            <td>定制版</td>
+          </tr>
+          <tr>
+            <td>应急方案</td>
+            <td><i class="ri-check-line" style="color: #d4a762"></i></td>
+            <td><i class="ri-check-line" style="color: #d4a762"></i></td>
+            <td><i class="ri-check-line" style="color: #d4a762"></i></td>
+          </tr>
+          <tr>
+            <td>价格</td>
+            <td>¥5,800</td>
+            <td>¥8,800</td>
+            <td>¥12,800</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 预约流程 -->
+    <section class="booking-process container">
+      <h2 class="section-title">预约流程</h2>
+      <div class="process-steps">
+        <div class="step">
+          <div class="step-icon">
+            <i class="ri-phone-line"></i>
+          </div>
+          <div class="step-number">步骤 1</div>
+          <div class="step-title">初步咨询</div>
+          <div class="step-description">
+            通过电话或微信联系我，了解基本服务内容和价格
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-icon">
+            <i class="ri-calendar-check-line"></i>
+          </div>
+          <div class="step-number">步骤 2</div>
+          <div class="step-title">面谈预约</div>
+          <div class="step-description">
+            安排面对面沟通，深入了解您的需求和期望
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-icon">
+            <i class="ri-file-list-3-line"></i>
+          </div>
+          <div class="step-number">步骤 3</div>
+          <div class="step-title">方案确认</div>
+          <div class="step-description">
+            根据沟通结果，制定个性化服务方案并确认
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-icon">
+            <i class="ri-secure-payment-line"></i>
+          </div>
+          <div class="step-number">步骤 4</div>
+          <div class="step-title">签约付款</div>
+          <div class="step-description">签订服务合同，支付定金锁定服务日期</div>
+        </div>
+        <div class="step">
+          <div class="step-icon">
+            <i class="ri-heart-line"></i>
+          </div>
+          <div class="step-number">步骤 5</div>
+          <div class="step-title">服务执行</div>
+          <div class="step-description">按照合同约定，提供专业婚礼主持服务</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 常见问题 -->
+    <section class="faq-section">
+      <div class="container">
+        <h2 class="section-title">常见问题</h2>
+        <div class="faq-container">
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>需要提前多久预约婚礼主持服务？</span>
+              <i class="ri-arrow-down-s-line"></i>
+            </div>
+            <div class="faq-answer">
+              <p>
+                建议至少提前3-6个月预约，特别是在婚礼旺季（5-10月）。越早预约，越能确保您心仪的日期可以得到服务。
+              </p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>服务费用包含哪些内容？</span>
+              <i class="ri-arrow-down-s-line"></i>
+            </div>
+            <div class="faq-answer">
+              <p>
+                基础服务费用包含婚礼当天的主持服务（8小时）、婚前沟通会议、个性化开场白与结束语设计、紧急情况应对方案等。如需额外服务，如婚礼策划咨询、新人培训等，将根据您的需求单独计费。
+              </p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>如何确保婚礼主持风格符合我们的期望？</span>
+              <i class="ri-arrow-down-s-line"></i>
+            </div>
+            <div class="faq-answer">
+              <p>
+                在签约前，我会与您进行详细沟通，了解您对婚礼的期望、风格喜好以及特殊要求。我会根据您的需求调整主持风格，确保与您的婚礼主题和个人喜好相符。您也可以查看我的往期作品视频，了解我的主持风格。
+              </p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>婚礼当天主持人会提前多久到达现场？</span>
+              <i class="ri-arrow-down-s-line"></i>
+            </div>
+            <div class="faq-answer">
+              <p>
+                我通常会在婚礼正式开始前2小时到达现场，熟悉场地环境，与婚礼团队进行最后的沟通和协调，确保一切按计划进行。如有特殊需求，可提前告知。
+              </p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>如果婚礼当天遇到突发情况怎么办？</span>
+              <i class="ri-arrow-down-s-line"></i>
+            </div>
+            <div class="faq-answer">
+              <p>
+                我有丰富的婚礼主持经验，能够从容应对各种突发情况。在婚礼前，我会与您一起制定应急预案。同时，我也有可靠的主持人资源网络，万一出现极端情况（如突发疾病），可以安排同等水平的主持人替代，确保您的婚礼顺利进行。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="social-links">
+          <a href=""><svg t="1754302376147" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7310" width="40" height="40"><path d="M512 2.27555555a509.72444445 509.72444445 0 1 0 0 1019.4488889A509.72444445 509.72444445 0 0 0 512 2.27555555z" fill="#FF0035" p-id="7311"></path><path d="M651.37322667 388.93795555c3.64088889 0 5.53415111 0 5.53415111 5.6069689v46.38492444c0 3.64088889-1.82044445 5.53415111-5.53415111 5.53415111h-25.99594667c-5.53415111 0-7.42741333 1.82044445-7.42741333 7.42741333v161.29137778c0 3.71370667 1.89326222 5.60696889 5.60696888 5.60696889h46.38492445c5.53415111 0 7.35459555 1.82044445 7.35459555 7.42741333v44.41884445c0 5.60696889-1.82044445 7.50023111-7.35459555 7.50023111-29.70965333-1.89326222-61.16693333-1.89326222-92.76984889-1.89326222H482.58161778c-5.53415111 0-7.35459555 0-3.64088889-5.53415112 7.35459555-14.85482667 14.78200889-31.53009778 24.02986666-46.38492444 1.89326222-3.64088889 3.71370667-5.53415111 9.32067556-5.53415111h46.38492444c4.36906667 0 5.31569778-1.16508445 5.46133334-4.51470222V451.99815111c0-5.53415111-1.82044445-7.35459555-7.28177778-5.53415111h-25.99594666c-5.60696889 0-7.42741333-1.82044445-7.42741334-5.53415111v-44.56448c0-5.53415111 1.82044445-7.35459555 7.42741334-7.35459556h120.51342222zM391.77784889 617.14887111c12.96156445 5.53415111 27.81639111 3.64088889 42.5984 3.64088889h37.13706666c3.64088889 0 5.53415111 1.89326222 3.6408889 5.60696889-9.24785778 16.74808889-16.67527111 33.42336-25.9231289 50.09863111-1.82044445 3.64088889-3.64088889 3.64088889-7.42741333 3.64088889-9.24785778-1.82044445-20.38897778-1.82044445-35.24380444-1.82044444-11.06830222 0-27.81639111 1.89326222-40.77795556-1.82044445-5.53415111-1.89326222-7.42741333-3.71370667-3.64088889-7.42741333 9.17504-16.74808889 16.60245333-31.53009778 24.02986667-48.20536889 1.89326222-1.89326222 1.89326222-5.60696889 5.60696889-3.71370667z m393.07036444-244.81336889c3.71370667 0 5.60696889 1.89326222 5.60696889 5.60696889 0 12.96156445 0 12.96156445 12.96156445 12.96156444 16.74808889 0 31.53009778 3.71370667 44.49166222 11.14112 18.56853333 11.14112 25.99594667 29.63683555 25.99594666 50.02581334v37.13706666c0 5.53415111 1.82044445 7.42741333 7.42741334 7.42741334 20.38897778 0 37.06424889 5.53415111 50.02581333 22.20942222a55.55996445 55.55996445 0 0 1 11.14112 33.42336V626.32391111c0 27.81639111-16.74808889 48.20536889-44.49166222 51.91907556a75.73048889 75.73048889 0 0 1-35.24380445-1.82044445 48.05973333 48.05973333 0 0 1-33.35054222-42.67121777c0-5.53415111 1.82044445-3.64088889 5.53415112-3.6408889h46.38492444c5.53415111 0 7.42741333-1.89326222 7.42741333-7.5002311v-48.2053689c0-12.96156445-7.42741333-20.38897778-20.38897777-20.38897777h-70.4876089c-3.71370667 0-5.60696889 1.89326222-5.60696888 5.53415111 1.89326222 18.56853333 1.89326222 37.13706667 1.89326222 57.52604444v55.63278222c0 5.53415111-1.89326222 7.42741333-7.42741334 7.42741334h-44.49166222c-5.60696889 0-7.42741333-1.89326222-7.42741333-7.42741334V561.44327111c0-5.53415111-1.89326222-7.42741333-7.42741333-7.42741333h-42.67121778c-5.53415111 0-7.42741333 0-7.42741334-5.53415111v-46.38492445c0-5.53415111 1.89326222-5.53415111 7.42741334-5.53415111h44.49166222c5.60696889 0 7.42741333-1.89326222 5.60696889-7.42741333v-35.24380445c0-5.60696889-1.89326222-5.60696889-7.42741333-5.60696888h-25.99594667c-3.64088889 0-5.53415111 0-5.53415111-5.53415112v-46.38492444c0-3.64088889 1.89326222-5.53415111 5.53415111-5.53415111h25.99594667c3.64088889 0 5.53415111-1.82044445 5.53415111-5.53415111 0-11.35957333 0-12.81592889 9.97603555-12.96156445h41.94304z m-543.29344-5.53415111c5.53415111 0 7.42741333 1.82044445 7.42741334 7.42741334-1.45635555 34.73408-1.74762667 67.42926222-1.82044445 98.81372444V626.32391111a52.35598222 52.35598222 0 0 1-7.50023111 27.81639111c-9.24785778 18.56853333-25.92312889 24.10268445-46.31210666 22.28224a41.72458667 41.72458667 0 0 1-38.95751112-31.53009777c-5.60696889-18.56853333-5.60696889-16.74808889 12.96156445-18.56853334 7.42741333 0 16.74808889 3.71370667 22.28224-1.82044444 3.64088889-3.71370667 1.82044445-12.96156445 1.82044444-20.38897778V374.15594667c0-5.60696889 1.89326222-7.42741333 7.42741333-7.42741334h42.67121778zM148.78492445 451.99815111c-3.64088889 40.77795555-5.53415111 81.55591111-11.06830223 122.40668444a160.92728889 160.92728889 0 0 1-29.70965333 74.20131556c1.89326222 0 0 1.82044445 0 3.64088889-11.14112-20.38897778-20.38897778-40.77795555-31.53009778-61.16693333-1.82044445-1.82044445-1.82044445-3.64088889 0-5.53415112 7.42741333-16.74808889 7.42741333-33.35054222 7.42741334-51.91907555l5.60696888-81.55591111c0-3.78652445 1.82044445-5.60696889 5.53415112-5.60696889h48.20536888c3.71370667 0 5.53415111 0 5.53415112 5.53415111zM337.96551111 446.464c5.53415111 0 5.53415111 1.82044445 7.42741334 7.42741333 1.82044445 37.13706667 5.53415111 74.20131555 9.24785777 111.26556445 0 3.64088889 0 9.24785778 1.89326223 12.96156444 3.64088889 7.42741333 1.82044445 14.85482667-1.89326223 22.28224-7.42741333 14.78200889-14.78200889 31.53009778-22.20942222 46.31210667-1.89326222 5.60696889-3.71370667 5.60696889-7.42741333 0-12.96156445-20.38897778-20.38897778-40.77795555-25.99594667-64.80782222C293.54666667 559.47719111 293.54666667 535.37450667 291.58058667 513.16508445c-1.82044445-20.38897778-3.64088889-38.95751111-5.53415112-59.3464889 0-5.60696889 0-7.42741333 7.42741334-7.42741333 7.42741333 1.82044445 14.85482667 0 22.20942222 0h22.28224z m144.61610667-74.20131555c5.60696889 0 5.60696889 1.89326222 3.71370667 5.60696888l-33.35054223 66.77390222c-1.82044445 1.82044445-1.82044445 3.64088889-3.71370667 7.35459556-1.82044445 3.71370667 0 5.60696889 3.71370667 7.42741334 3.64088889 1.89326222 3.64088889-1.82044445 5.53415111-3.6408889 1.89326222-3.78652445 3.71370667-5.60696889 9.32067556-5.60696888h44.41884444c5.60696889 0 5.60696889 1.82044445 3.78652445 5.53415111-14.85482667 27.81639111-27.81639111 57.52604445-42.67121778 85.34243555-5.53415111 11.14112-3.64088889 14.85482667 9.24785778 14.85482667 3.71370667-1.89326222 11.14112-1.89326222 18.56853333-1.89326222-7.42741333 12.96156445-12.96156445 25.99594667-18.56853333 38.95751111-3.64088889 9.24785778-9.24785778 11.14112-16.67527111 11.14112h-42.5984c-3.71370667 0-7.42741333 0-11.14112-1.89326222-13.03438222-3.64088889-16.74808889-12.96156445-13.03438222-25.92312889 7.42741333-20.38897778 18.56853333-38.95751111 27.8163911-59.34648889 1.89326222-3.71370667 3.71370667-5.60696889 5.6069689-11.14112h-37.13706667c-14.78200889-3.71370667-20.38897778-12.96156445-14.78200889-27.81639111 5.53415111-16.74808889 14.85482667-33.35054222 22.20942222-48.20536889 9.32067555-16.74808889 16.74808889-35.24380445 25.99594667-51.91907556 1.82044445-3.71370667 3.64088889-5.60696889 9.24785777-5.60696888h44.49166223z m315.30097777 74.20131555c-3.71370667 0-5.60696889 1.82044445-5.60696888 5.53415111v38.95751111c0 3.71370667 1.89326222 5.60696889 5.60696888 5.60696889h20.38897778c3.64088889 0 5.53415111-1.89326222 5.53415112-5.60696889v-30.58346667c-0.21845333-13.90819555-2.76707555-13.90819555-25.9231289-13.90819555z m126.04757334-57.52604445c13.03438222 1.89326222 24.10268445 14.85482667 24.10268444 29.70965334s-11.06830222 25.99594667-25.92312888 27.81639111h-14.85482667c-18.49571555 0-18.49571555 0-18.49571556-18.56853333 0-5.53415111 0-12.96156445 1.82044445-18.49571556 3.71370667-14.85482667 16.74808889-22.28224 33.35054222-20.38897778z" fill="#FFFFFF" p-id="7312"></path></svg></a>
+          <a href=""><svg t="1754302242511" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6281" width="40" height="40"><path d="M512 512m-512 0a512 512 0 1 0 1024 0 512 512 0 1 0-1024 0Z" fill="#333333" p-id="6282"></path><path d="M759.296 448.512c-48.896 0-96.256-15.872-135.424-45.056v204.8c0 104.448-80.64 189.184-179.968 189.184s-179.968-84.736-179.968-189.184 80.64-189.184 179.968-189.184c9.984 0 19.712 0.768 28.928 2.56V529.92c-8.96-3.584-18.688-5.376-28.16-5.376-44.288 0-80.384 37.632-80.384 84.48s36.096 84.48 80.384 84.48 80.128-37.632 80.128-84.48V202.24h100.352c0 78.336 60.416 141.568 134.656 141.568v104.704h-0.512" fill="#FFFFFF" p-id="6283"></path></svg></a>
+          <a href=""><svg t="1754302213857" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5273" width="40" height="40"><path d="M337.387283 341.82659c-17.757225 0-35.514451 11.83815-35.514451 29.595375s17.757225 29.595376 35.514451 29.595376 29.595376-11.83815 29.595376-29.595376c0-18.49711-11.83815-29.595376-29.595376-29.595375zM577.849711 513.479769c-11.83815 0-22.936416 12.578035-22.936416 23.6763 0 12.578035 11.83815 23.676301 22.936416 23.676301 17.757225 0 29.595376-11.83815 29.595376-23.676301s-11.83815-23.676301-29.595376-23.6763zM501.641618 401.017341c17.757225 0 29.595376-12.578035 29.595376-29.595376 0-17.757225-11.83815-29.595376-29.595376-29.595375s-35.514451 11.83815-35.51445 29.595375 17.757225 29.595376 35.51445 29.595376zM706.589595 513.479769c-11.83815 0-22.936416 12.578035-22.936416 23.6763 0 12.578035 11.83815 23.676301 22.936416 23.676301 17.757225 0 29.595376-11.83815 29.595376-23.676301s-11.83815-23.676301-29.595376-23.6763z" fill="#28C445" p-id="5274"></path><path d="M510.520231 2.959538C228.624277 2.959538 0 231.583815 0 513.479769s228.624277 510.520231 510.520231 510.520231 510.520231-228.624277 510.520231-510.520231-228.624277-510.520231-510.520231-510.520231zM413.595376 644.439306c-29.595376 0-53.271676-5.919075-81.387284-12.578034l-81.387283 41.433526 22.936416-71.768786c-58.450867-41.433526-93.965318-95.445087-93.965317-159.815029 0-113.202312 105.803468-201.988439 233.803468-201.98844 114.682081 0 216.046243 71.028902 236.023121 166.473989-7.398844-0.739884-14.797688-1.479769-22.196532-1.479769-110.982659 1.479769-198.289017 85.086705-198.289017 188.67052 0 17.017341 2.959538 33.294798 7.398844 49.572255-7.398844 0.739884-15.537572 1.479769-22.936416 1.479768z m346.265896 82.867052l17.757225 59.190752-63.630058-35.514451c-22.936416 5.919075-46.612717 11.83815-70.289017 11.83815-111.722543 0-199.768786-76.947977-199.768786-172.393063-0.739884-94.705202 87.306358-171.653179 198.289017-171.65318 105.803468 0 199.028902 77.687861 199.028902 172.393064 0 53.271676-34.774566 100.624277-81.387283 136.138728z" fill="#28C445" p-id="5275"></path></svg></a>
+        </div>
+        <p class="copyright">© 2025 优雅婚礼主持 版权所有</p>
+      </div>
+    </footer>
+
+    <script>
+      // 导航栏滚动效果
+      window.addEventListener("scroll", function () {
+        const navbar = document.querySelector(".navbar");
+        if (window.scrollY > 50) {
+          navbar.style.padding = "10px 50px";
+          navbar.style.boxShadow = "0 2px 10px rgba(0, 0, 0, 0.1)";
+        } else {
+          navbar.style.padding = "15px 50px";
+          navbar.style.boxShadow = "0 2px 10px rgba(0, 0, 0, 0.05)";
+        }
+      });
+
+      // FAQ 折叠面板
+      const faqItems = document.querySelectorAll(".faq-item");
+      faqItems.forEach((item) => {
+        const question = item.querySelector(".faq-question");
+        question.addEventListener("click", () => {
+          item.classList.toggle("active");
+        });
+      });
+    </script>
+  </body>
+</html>

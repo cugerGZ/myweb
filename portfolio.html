@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="trancy-zh-CN translated-ltr">
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="chrome-extension://ponokiofkijoolhebggofhhibnafebna/common/default.inline.css"
+  />
+  <script
+    type="text/javascript"
+    src="chrome-extension://ponokiofkijoolhebggofhhibnafebna/common/default.inline.js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="chrome-extension://cphlcmmpbdkadofgcedjgfblmiklbokm/js/tweet_interceptor.js"
+  ></script>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>作品展示- 婚礼主持人</title>
+    <style>
+      @font-face {
+        font-family: "NotoSerifCJKsc";
+        src: url("https://assets-persist.lovart.ai/agent-static-assets/NotoSerifCJKsc-Regular.otf")
+          format("opentype");
+        font-weight: normal;
+      }
+
+      @font-face {
+        font-family: "NotoSerifCJKsc";
+        src: url("https://assets-persist.lovart.ai/agent-static-assets/NotoSerifCJKsc-Bold.otf")
+          format("opentype");
+        font-weight: bold;
+      }
+
+      @font-face {
+        font-family: "MiSans";
+        src: url("https://assets-persist.lovart.ai/agent-static-assets/MiSans-Regular.ttf")
+          format("truetype");
+        font-weight: normal;
+      }
+
+      @font-face {
+        font-family: "MiSans";
+        src: url("https://assets-persist.lovart.ai/agent-static-assets/MiSans-Medium.ttf")
+          format("truetype");
+        font-weight: 500;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* 颜色变量 */
+      :root {
+        --primary-pink: #ffd1dc;
+        --light-pink: #fff0f5;
+        --gold: #d4af37;
+        --light-gold: #f5ebd0;
+        --dark-text: #333333;
+        --light-text: #777777;
+      }
+
+      body {
+        font-family: "MiSans", sans-serif;
+        color: #333;
+        background-color: #fff;
+        width: 1440px;
+        margin: 0 auto;
+      }
+
+      /* 导航栏样式 */
+      header {
+        position: fixed;
+        top: 0;
+        width: 1440px;
+        background-color: rgba(255, 255, 255, 0.95);
+        padding: 20px 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        z-index: 1000;
+      }
+
+      .logo {
+        font-family: "NotoSerifCJK", serif;
+        font-size: 28px;
+        font-weight: 600;
+        color: var(--dark-text);
+      }
+
+      .logo span {
+        color: var(--gold);
+      }
+
+      header a {
+        text-decoration: none;
+      }
+
+      nav ul {
+        display: flex;
+        list-style: none;
+      }
+
+      nav ul li {
+        margin-left: 30px;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        color: #333;
+        font-size: 16px;
+        transition: color 0.3s;
+        position: relative;
+      }
+
+      nav ul li a:hover {
+        color: #d4a762;
+      }
+
+      nav ul li a.active {
+        color: #d4a762;
+      }
+
+      nav ul li a.active::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #d4a762;
+      }
+
+      /* 主要内容区域 */
+      main {
+        padding-top: 100px;
+        width: 100%;
+      }
+
+      /* 页面标题 */
+      .page-title {
+        text-align: center;
+        padding: 60px 0 30px;
+      }
+
+      .page-title h1 {
+        font-family: "NotoSerifCJKsc", serif;
+        font-size: 42px;
+        color: #333;
+        margin-bottom: 15px;
+      }
+
+      .title-decoration {
+        display: inline-block;
+        width: 100px;
+        height: 2px;
+        background-color: #d4a762;
+        position: relative;
+      }
+
+      .title-decoration::before,
+      .title-decoration::after {
+        content: "";
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: #d4a762;
+        top: -3px;
+      }
+
+      .title-decoration::before {
+        left: -5px;
+      }
+
+      .title-decoration::after {
+        right: -5px;
+      }
+
+      /* 筛选功能 */
+      .filter-container {
+        display: flex;
+        justify-content: center;
+        margin: 30px 0 50px;
+      }
+
+      .filter-btn {
+        background: none;
+        border: none;
+        padding: 10px 25px;
+        margin: 0 10px;
+        font-size: 16px;
+        color: #666;
+        cursor: pointer;
+        transition: all 0.3s;
+        position: relative;
+      }
+
+      .filter-btn:hover {
+        color: #d4a762;
+      }
+
+      .filter-btn.active {
+        color: #d4a762;
+        font-weight: 500;
+      }
+
+      .filter-btn.active::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 25%;
+        width: 50%;
+        height: 2px;
+        background-color: #d4a762;
+      }
+
+      /* 作品展示网格 */
+      .portfolio-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        padding: 0 50px;
+      }
+
+      .portfolio-item {
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s, box-shadow 0.3s;
+        cursor: pointer;
+        background-color: #fff;
+      }
+
+      .portfolio-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+      }
+
+      .portfolio-img {
+        width: 100%;
+        height: 280px;
+        object-fit: cover;
+      }
+
+      .portfolio-info {
+        padding: 20px;
+      }
+
+      .portfolio-info h3 {
+        font-size: 20px;
+        margin-bottom: 10px;
+        color: #333;
+      }
+
+      .portfolio-info p {
+        font-size: 14px;
+        color: #666;
+        line-height: 1.6;
+        margin-bottom: 15px;
+      }
+
+      .portfolio-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 14px;
+        color: #999;
+      }
+
+      .portfolio-meta .date {
+        display: flex;
+        align-items: center;
+      }
+
+      .portfolio-meta .date i {
+        margin-right: 5px;
+        font-size: 16px;
+      }
+
+      .portfolio-meta .location {
+        display: flex;
+        align-items: center;
+      }
+
+      .portfolio-meta .location i {
+        margin-right: 5px;
+        font-size: 16px;
+      }
+
+      /* 客户评价 */
+      .testimonial-section {
+        margin: 80px 0;
+        padding: 60px 50px;
+        background-color: #fdf8f9;
+        text-align: center;
+      }
+
+      .testimonial-section h2 {
+        font-family: "NotoSerifCJKsc", serif;
+        font-size: 32px;
+        margin-bottom: 40px;
+        color: #333;
+      }
+
+      .testimonial-container {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 30px;
+      }
+
+      .testimonial-card {
+        flex: 0 0 calc(33.33% - 30px);
+        background-color: #fff;
+        border-radius: 8px;
+        padding: 30px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        text-align: left;
+      }
+
+      .testimonial-content {
+        position: relative;
+        padding: 20px 0;
+      }
+
+      .testimonial-content::before {
+        content: '"';
+        font-family: "NotoSerifCJKsc", serif;
+        font-size: 60px;
+        color: rgba(212, 167, 98, 0.2);
+        position: absolute;
+        top: -10px;
+        left: -10px;
+      }
+
+      .testimonial-content p {
+        font-size: 16px;
+        line-height: 1.8;
+        color: #555;
+        margin-bottom: 20px;
+      }
+
+      .testimonial-author {
+        display: flex;
+        align-items: center;
+      }
+
+      .testimonial-author-img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-right: 15px;
+        background-color: #f0f0f0;
+      }
+
+      .testimonial-author-info h4 {
+        font-size: 18px;
+        color: #333;
+        margin-bottom: 5px;
+      }
+
+      .testimonial-author-info p {
+        font-size: 14px;
+        color: #999;
+      }
+
+      /* 页脚 */
+      .footer {
+        background-color: #333;
+        color: white;
+        padding: 50px;
+        text-align: center;
+      }
+
+      .footer-content {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .social-links {
+        margin-bottom: 20px;
+      }
+
+      .social-links a {
+        display: inline-block;
+        width: 44px;
+        height: 44px;
+        background-color: rgba(255, 255, 255);
+        border-radius: 50%;
+        margin: 0 10px;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        transition: all 0.3s ease;
+      }
+
+      .social-links a:hover {
+        background-color: var(--gold);
+        transform: translateY(-3px);
+      }
+
+      .copyright {
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      /* 响应式设计 */
+      @media (max-width: 1200px) {
+        .portfolio-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .portfolio-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .testimonial-container {
+          flex-direction: column;
+        }
+
+        .testimonial-card {
+          margin-bottom: 20px;
+        }
+      }
+    </style>
+
+    <link
+      type="text/css"
+      rel="stylesheet"
+      charset="UTF-8"
+      href="./作品展示- 婚礼主持人_files/m=el_main_css"
+    />
+  </head>
+  <body
+    mpa-version="11.5.5"
+    mpa-extension-id="ibefaeehajgcpooopoegkifhgecigeeg"
+    cz-shortcut-listen="true"
+  >
+    <!-- 导航栏 -->
+    <header>
+      <a href="./index.html">
+        <div class="logo">优雅<span>婚礼</span>主持</div>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="./index.html">首页</a></li>
+          <li><a href="./about.html">关于我</a></li>
+          <li><a href="./services.html">服务介绍</a></li>
+          <li><a href="./portfolio.html" class="active">作品展示</a></li>
+          <li><a href="./index.html#contact">联系方式</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- 主要内容区域 -->
+    <main>
+      <!-- 页面标题 -->
+      <section class="page-title">
+        <h1>
+          <font style="vertical-align: inherit"
+            ><font style="vertical-align: inherit">作品展示</font></font
+          >
+        </h1>
+        <span class="title-decoration"></span>
+        <p style="margin-top: 20px; color: #666">
+          每一场婚礼都是独一无二的爱情故事
+        </p>
+      </section>
+
+      <!-- 筛选功能 -->
+      <div class="filter-container">
+        <button class="filter-btn active">全部作品</button>
+        <button class="filter-btn">传统中式</button>
+        <button class="filter-btn">西式婚礼</button>
+        <button class="filter-btn">户外婚礼</button>
+        <button class="filter-btn">主题婚礼</button>
+      </div>
+
+      <!-- 作品展示网格 -->
+      <div class="portfolio-grid">
+        <!-- 作品项目1 -->
+        <div class="portfolio-item">
+          <img
+            src="./zhuchi.png"
+            alt="婚礼主持现场"
+            class="portfolio-img"
+          />
+          <div class="portfolio-info">
+            <h3>浪漫花园婚礼</h3>
+            <p>
+              在充满花香的户外花园中，新人许下爱的誓言，温馨浪漫的氛围让每位宾客都沉浸在幸福之中。
+            </p>
+            <div class="portfolio-meta">
+              <span class="date"
+                ><i class="ri-calendar-line"></i
+                ><font style="vertical-align: inherit"
+                  ><font style="vertical-align: inherit">2023.06.18</font></font
+                ></span
+              >
+              <span class="location"
+                ><i class="ri-map-pin-line"></i> 上海·花园酒店</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- 作品项目2 -->
+        <div class="portfolio-item">
+          <img
+            src="./flower.png"
+            alt="婚礼布置细节"
+            class="portfolio-img"
+          />
+          <div class="portfolio-info">
+            <h3>优雅金粉主题婚礼</h3>
+            <p>
+              金色与粉色的完美融合，精致的餐桌布置和花艺装饰，为新人打造一场高雅奢华的婚礼盛宴。
+            </p>
+            <div class="portfolio-meta">
+              <span class="date"
+                ><i class="ri-calendar-line"></i
+                ><font style="vertical-align: inherit"
+                  ><font style="vertical-align: inherit"
+                    >2023年9月25日</font
+                  ></font
+                ></span
+              >
+              <span class="location"
+                ><i class="ri-map-pin-line"></i> 北京·丽思卡尔顿</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- 作品项目3 -->
+        <div class="portfolio-item">
+          <img
+            src="./zhuchi.png"
+            alt="婚礼主持现场"
+            class="portfolio-img"
+          />
+          <div class="portfolio-info">
+            <h3>中西结合主题婚礼</h3>
+            <p>
+              传统中式元素与西式婚礼的完美结合，既保留了中国传统文化的精髓，又融入了现代婚礼的浪漫。
+            </p>
+            <div class="portfolio-meta">
+              <span class="date"
+                ><i class="ri-calendar-line"></i
+                ><font style="vertical-align: inherit"
+                  ><font style="vertical-align: inherit">2023.05.20</font></font
+                ></span
+              >
+              <span class="location"
+                ><i class="ri-map-pin-line"></i> 杭州·西子湖四季</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- 作品项目4 -->
+        <div class="portfolio-item">
+          <img
+            src="./flower.png"
+            alt="婚礼布置细节"
+            class="portfolio-img"
+          />
+          <div class="portfolio-info">
+            <h3>海边日落婚礼</h3>
+            <p>
+              在夕阳的映照下，新人在海边许下誓言，金色的阳光与蓝色的海洋构成了最美的婚礼背景。
+            </p>
+            <div class="portfolio-meta">
+              <span class="date"
+                ><i class="ri-calendar-line"></i
+                ><font style="vertical-align: inherit"
+                  ><font style="vertical-align: inherit">2023.07.08</font></font
+                ></span
+              >
+              <span class="location"
+                ><i class="ri-map-pin-line"></i> 三亚·亚特兰蒂斯</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- 作品项目5 -->
+        <div class="portfolio-item">
+          <img
+            src="./zhuchi.png"
+            alt="婚礼主持现场"
+            class="portfolio-img"
+          />
+          <div class="portfolio-info">
+            <h3>复古宫廷风婚礼</h3>
+            <p>
+              以欧洲宫廷为灵感的婚礼主题，华丽的装饰和精心设计的流程，让宾客仿佛置身于童话世界。
+            </p>
+            <div class="portfolio-meta">
+              <span class="date"
+                ><i class="ri-calendar-line"></i
+                ><font style="vertical-align: inherit"
+                  ><font style="vertical-align: inherit">2023.10.01</font></font
+                ></span
+              >
+              <span class="location"
+                ><i class="ri-map-pin-line"></i> 上海·外滩华尔道夫</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- 作品项目6 -->
+        <div class="portfolio-item">
+          <img
+            src="./flower.png"
+            alt="婚礼布置细节"
+            class="portfolio-img"
+          />
+          <div class="portfolio-info">
+            <h3>极简主义婚礼</h3>
+            <p>
+              简约而不简单的婚礼设计，白色与绿色的搭配，干净利落的线条，展现现代都市爱情的纯粹。
+            </p>
+            <div class="portfolio-meta">
+              <span class="date"
+                ><i class="ri-calendar-line"></i
+                ><font style="vertical-align: inherit"
+                  ><font style="vertical-align: inherit">2023.04.15</font></font
+                ></span
+              >
+              <span class="location"
+                ><i class="ri-map-pin-line"></i> 深圳·柏悦酒店</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 客户评价 -->
+      <section class="testimonial-section">
+        <h2>
+          <font style="vertical-align: inherit"
+            ><font style="vertical-align: inherit">客户评价</font></font
+          >
+        </h2>
+        <span class="title-decoration"></span>
+
+        <div class="testimonial-container">
+          <!-- 评价1 -->
+          <div class="testimonial-card">
+            <div class="testimonial-content">
+              <p>
+                感谢心语主持让我们的婚礼如此完美！专业的主持技巧和温暖的声音，让整个婚礼流程顺畅自然，宾客们都赞不绝口。她不仅是主持人，更像是我们婚礼的贴心顾问，给了我们很多宝贵建议。
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <div class="testimonial-author-img"></div>
+              <div class="testimonial-author-info">
+                <h4>李小姐 &amp; 王先生</h4>
+                <p>2023年6月 · 上海</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 评价2 -->
+          <div class="testimonial-card">
+            <div class="testimonial-content">
+              <p>
+                作为一对跨国恋人，我们担心语言和文化差异会影响婚礼氛围，但心语主持完美解决了这个问题。她流利的双语主持和对中西文化的理解，让两边的家人都感到温暖和尊重。非常感谢！
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <div class="testimonial-author-img"></div>
+              <div class="testimonial-author-info">
+                <h4>张小姐 &amp; Michael</h4>
+                <p>2023年9月 · 北京</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 评价3 -->
+          <div class="testimonial-card">
+            <div class="testimonial-content">
+              <p>
+                心语主持的专业度超出了我们的预期！她不仅能够掌控现场气氛，还能在突发状况下临机应变。婚礼当天下了小雨，她立即调整了流程，并用幽默的方式安抚了大家的情绪，真的很棒！
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <div class="testimonial-author-img"></div>
+              <div class="testimonial-author-info">
+                <h4>陈先生 &amp; 林小姐</h4>
+                <p>2023年5月 · 杭州</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="social-links">
+          <a href=""><svg t="1754302376147" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7310" width="40" height="40"><path d="M512 2.27555555a509.72444445 509.72444445 0 1 0 0 1019.4488889A509.72444445 509.72444445 0 0 0 512 2.27555555z" fill="#FF0035" p-id="7311"></path><path d="M651.37322667 388.93795555c3.64088889 0 5.53415111 0 5.53415111 5.6069689v46.38492444c0 3.64088889-1.82044445 5.53415111-5.53415111 5.53415111h-25.99594667c-5.53415111 0-7.42741333 1.82044445-7.42741333 7.42741333v161.29137778c0 3.71370667 1.89326222 5.60696889 5.60696888 5.60696889h46.38492445c5.53415111 0 7.35459555 1.82044445 7.35459555 7.42741333v44.41884445c0 5.60696889-1.82044445 7.50023111-7.35459555 7.50023111-29.70965333-1.89326222-61.16693333-1.89326222-92.76984889-1.89326222H482.58161778c-5.53415111 0-7.35459555 0-3.64088889-5.53415112 7.35459555-14.85482667 14.78200889-31.53009778 24.02986666-46.38492444 1.89326222-3.64088889 3.71370667-5.53415111 9.32067556-5.53415111h46.38492444c4.36906667 0 5.31569778-1.16508445 5.46133334-4.51470222V451.99815111c0-5.53415111-1.82044445-7.35459555-7.28177778-5.53415111h-25.99594666c-5.60696889 0-7.42741333-1.82044445-7.42741334-5.53415111v-44.56448c0-5.53415111 1.82044445-7.35459555 7.42741334-7.35459556h120.51342222zM391.77784889 617.14887111c12.96156445 5.53415111 27.81639111 3.64088889 42.5984 3.64088889h37.13706666c3.64088889 0 5.53415111 1.89326222 3.6408889 5.60696889-9.24785778 16.74808889-16.67527111 33.42336-25.9231289 50.09863111-1.82044445 3.64088889-3.64088889 3.64088889-7.42741333 3.64088889-9.24785778-1.82044445-20.38897778-1.82044445-35.24380444-1.82044444-11.06830222 0-27.81639111 1.89326222-40.77795556-1.82044445-5.53415111-1.89326222-7.42741333-3.71370667-3.64088889-7.42741333 9.17504-16.74808889 16.60245333-31.53009778 24.02986667-48.20536889 1.89326222-1.89326222 1.89326222-5.60696889 5.60696889-3.71370667z m393.07036444-244.81336889c3.71370667 0 5.60696889 1.89326222 5.60696889 5.60696889 0 12.96156445 0 12.96156445 12.96156445 12.96156444 16.74808889 0 31.53009778 3.71370667 44.49166222 11.14112 18.56853333 11.14112 25.99594667 29.63683555 25.99594666 50.02581334v37.13706666c0 5.53415111 1.82044445 7.42741333 7.42741334 7.42741334 20.38897778 0 37.06424889 5.53415111 50.02581333 22.20942222a55.55996445 55.55996445 0 0 1 11.14112 33.42336V626.32391111c0 27.81639111-16.74808889 48.20536889-44.49166222 51.91907556a75.73048889 75.73048889 0 0 1-35.24380445-1.82044445 48.05973333 48.05973333 0 0 1-33.35054222-42.67121777c0-5.53415111 1.82044445-3.64088889 5.53415112-3.6408889h46.38492444c5.53415111 0 7.42741333-1.89326222 7.42741333-7.5002311v-48.2053689c0-12.96156445-7.42741333-20.38897778-20.38897777-20.38897777h-70.4876089c-3.71370667 0-5.60696889 1.89326222-5.60696888 5.53415111 1.89326222 18.56853333 1.89326222 37.13706667 1.89326222 57.52604444v55.63278222c0 5.53415111-1.89326222 7.42741333-7.42741334 7.42741334h-44.49166222c-5.60696889 0-7.42741333-1.89326222-7.42741333-7.42741334V561.44327111c0-5.53415111-1.89326222-7.42741333-7.42741333-7.42741333h-42.67121778c-5.53415111 0-7.42741333 0-7.42741334-5.53415111v-46.38492445c0-5.53415111 1.89326222-5.53415111 7.42741334-5.53415111h44.49166222c5.60696889 0 7.42741333-1.89326222 5.60696889-7.42741333v-35.24380445c0-5.60696889-1.89326222-5.60696889-7.42741333-5.60696888h-25.99594667c-3.64088889 0-5.53415111 0-5.53415111-5.53415112v-46.38492444c0-3.64088889 1.89326222-5.53415111 5.53415111-5.53415111h25.99594667c3.64088889 0 5.53415111-1.82044445 5.53415111-5.53415111 0-11.35957333 0-12.81592889 9.97603555-12.96156445h41.94304z m-543.29344-5.53415111c5.53415111 0 7.42741333 1.82044445 7.42741334 7.42741334-1.45635555 34.73408-1.74762667 67.42926222-1.82044445 98.81372444V626.32391111a52.35598222 52.35598222 0 0 1-7.50023111 27.81639111c-9.24785778 18.56853333-25.92312889 24.10268445-46.31210666 22.28224a41.72458667 41.72458667 0 0 1-38.95751112-31.53009777c-5.60696889-18.56853333-5.60696889-16.74808889 12.96156445-18.56853334 7.42741333 0 16.74808889 3.71370667 22.28224-1.82044444 3.64088889-3.71370667 1.82044445-12.96156445 1.82044444-20.38897778V374.15594667c0-5.60696889 1.89326222-7.42741333 7.42741333-7.42741334h42.67121778zM148.78492445 451.99815111c-3.64088889 40.77795555-5.53415111 81.55591111-11.06830223 122.40668444a160.92728889 160.92728889 0 0 1-29.70965333 74.20131556c1.89326222 0 0 1.82044445 0 3.64088889-11.14112-20.38897778-20.38897778-40.77795555-31.53009778-61.16693333-1.82044445-1.82044445-1.82044445-3.64088889 0-5.53415112 7.42741333-16.74808889 7.42741333-33.35054222 7.42741334-51.91907555l5.60696888-81.55591111c0-3.78652445 1.82044445-5.60696889 5.53415112-5.60696889h48.20536888c3.71370667 0 5.53415111 0 5.53415112 5.53415111zM337.96551111 446.464c5.53415111 0 5.53415111 1.82044445 7.42741334 7.42741333 1.82044445 37.13706667 5.53415111 74.20131555 9.24785777 111.26556445 0 3.64088889 0 9.24785778 1.89326223 12.96156444 3.64088889 7.42741333 1.82044445 14.85482667-1.89326223 22.28224-7.42741333 14.78200889-14.78200889 31.53009778-22.20942222 46.31210667-1.89326222 5.60696889-3.71370667 5.60696889-7.42741333 0-12.96156445-20.38897778-20.38897778-40.77795555-25.99594667-64.80782222C293.54666667 559.47719111 293.54666667 535.37450667 291.58058667 513.16508445c-1.82044445-20.38897778-3.64088889-38.95751111-5.53415112-59.3464889 0-5.60696889 0-7.42741333 7.42741334-7.42741333 7.42741333 1.82044445 14.85482667 0 22.20942222 0h22.28224z m144.61610667-74.20131555c5.60696889 0 5.60696889 1.89326222 3.71370667 5.60696888l-33.35054223 66.77390222c-1.82044445 1.82044445-1.82044445 3.64088889-3.71370667 7.35459556-1.82044445 3.71370667 0 5.60696889 3.71370667 7.42741334 3.64088889 1.89326222 3.64088889-1.82044445 5.53415111-3.6408889 1.89326222-3.78652445 3.71370667-5.60696889 9.32067556-5.60696888h44.41884444c5.60696889 0 5.60696889 1.82044445 3.78652445 5.53415111-14.85482667 27.81639111-27.81639111 57.52604445-42.67121778 85.34243555-5.53415111 11.14112-3.64088889 14.85482667 9.24785778 14.85482667 3.71370667-1.89326222 11.14112-1.89326222 18.56853333-1.89326222-7.42741333 12.96156445-12.96156445 25.99594667-18.56853333 38.95751111-3.64088889 9.24785778-9.24785778 11.14112-16.67527111 11.14112h-42.5984c-3.71370667 0-7.42741333 0-11.14112-1.89326222-13.03438222-3.64088889-16.74808889-12.96156445-13.03438222-25.92312889 7.42741333-20.38897778 18.56853333-38.95751111 27.8163911-59.34648889 1.89326222-3.71370667 3.71370667-5.60696889 5.6069689-11.14112h-37.13706667c-14.78200889-3.71370667-20.38897778-12.96156445-14.78200889-27.81639111 5.53415111-16.74808889 14.85482667-33.35054222 22.20942222-48.20536889 9.32067555-16.74808889 16.74808889-35.24380445 25.99594667-51.91907556 1.82044445-3.71370667 3.64088889-5.60696889 9.24785777-5.60696888h44.49166223z m315.30097777 74.20131555c-3.71370667 0-5.60696889 1.82044445-5.60696888 5.53415111v38.95751111c0 3.71370667 1.89326222 5.60696889 5.60696888 5.60696889h20.38897778c3.64088889 0 5.53415111-1.89326222 5.53415112-5.60696889v-30.58346667c-0.21845333-13.90819555-2.76707555-13.90819555-25.9231289-13.90819555z m126.04757334-57.52604445c13.03438222 1.89326222 24.10268445 14.85482667 24.10268444 29.70965334s-11.06830222 25.99594667-25.92312888 27.81639111h-14.85482667c-18.49571555 0-18.49571555 0-18.49571556-18.56853333 0-5.53415111 0-12.96156445 1.82044445-18.49571556 3.71370667-14.85482667 16.74808889-22.28224 33.35054222-20.38897778z" fill="#FFFFFF" p-id="7312"></path></svg></a>
+          <a href=""><svg t="1754302242511" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6281" width="40" height="40"><path d="M512 512m-512 0a512 512 0 1 0 1024 0 512 512 0 1 0-1024 0Z" fill="#333333" p-id="6282"></path><path d="M759.296 448.512c-48.896 0-96.256-15.872-135.424-45.056v204.8c0 104.448-80.64 189.184-179.968 189.184s-179.968-84.736-179.968-189.184 80.64-189.184 179.968-189.184c9.984 0 19.712 0.768 28.928 2.56V529.92c-8.96-3.584-18.688-5.376-28.16-5.376-44.288 0-80.384 37.632-80.384 84.48s36.096 84.48 80.384 84.48 80.128-37.632 80.128-84.48V202.24h100.352c0 78.336 60.416 141.568 134.656 141.568v104.704h-0.512" fill="#FFFFFF" p-id="6283"></path></svg></a>
+          <a href=""><svg t="1754302213857" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5273" width="40" height="40"><path d="M337.387283 341.82659c-17.757225 0-35.514451 11.83815-35.514451 29.595375s17.757225 29.595376 35.514451 29.595376 29.595376-11.83815 29.595376-29.595376c0-18.49711-11.83815-29.595376-29.595376-29.595375zM577.849711 513.479769c-11.83815 0-22.936416 12.578035-22.936416 23.6763 0 12.578035 11.83815 23.676301 22.936416 23.676301 17.757225 0 29.595376-11.83815 29.595376-23.676301s-11.83815-23.676301-29.595376-23.6763zM501.641618 401.017341c17.757225 0 29.595376-12.578035 29.595376-29.595376 0-17.757225-11.83815-29.595376-29.595376-29.595375s-35.514451 11.83815-35.51445 29.595375 17.757225 29.595376 35.51445 29.595376zM706.589595 513.479769c-11.83815 0-22.936416 12.578035-22.936416 23.6763 0 12.578035 11.83815 23.676301 22.936416 23.676301 17.757225 0 29.595376-11.83815 29.595376-23.676301s-11.83815-23.676301-29.595376-23.6763z" fill="#28C445" p-id="5274"></path><path d="M510.520231 2.959538C228.624277 2.959538 0 231.583815 0 513.479769s228.624277 510.520231 510.520231 510.520231 510.520231-228.624277 510.520231-510.520231-228.624277-510.520231-510.520231-510.520231zM413.595376 644.439306c-29.595376 0-53.271676-5.919075-81.387284-12.578034l-81.387283 41.433526 22.936416-71.768786c-58.450867-41.433526-93.965318-95.445087-93.965317-159.815029 0-113.202312 105.803468-201.988439 233.803468-201.98844 114.682081 0 216.046243 71.028902 236.023121 166.473989-7.398844-0.739884-14.797688-1.479769-22.196532-1.479769-110.982659 1.479769-198.289017 85.086705-198.289017 188.67052 0 17.017341 2.959538 33.294798 7.398844 49.572255-7.398844 0.739884-15.537572 1.479769-22.936416 1.479768z m346.265896 82.867052l17.757225 59.190752-63.630058-35.514451c-22.936416 5.919075-46.612717 11.83815-70.289017 11.83815-111.722543 0-199.768786-76.947977-199.768786-172.393063-0.739884-94.705202 87.306358-171.653179 198.289017-171.65318 105.803468 0 199.028902 77.687861 199.028902 172.393064 0 53.271676-34.774566 100.624277-81.387283 136.138728z" fill="#28C445" p-id="5275"></path></svg></a>
+        </div>
+        <p class="copyright">© 2025 优雅婚礼主持 版权所有</p>
+      </div>
+    </footer>
+  </body>
+</html>
